@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gisikdrono Space - Galeri Kreasi & UMKM</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#059669', 
+                        accent: '#D97706' 
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#F8FAF9] dark:bg-slate-950 text-slate-800 dark:text-slate-100 flex flex-col min-h-screen relative overflow-x-hidden transition-colors duration-300" onclick="closeAllDropdowns(event)">
+
+    <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-emerald-200/30 dark:bg-emerald-900/20 blur-[120px] pointer-events-none -z-10"></div>
+    <div class="absolute top-[20%] right-[-5%] w-[40vw] h-[40vw] rounded-full bg-amber-100/40 dark:bg-amber-950/20 blur-[120px] pointer-events-none -z-10"></div>
+
+    <div class="pt-4 sm:pt-6 sticky top-0 z-40 px-4">
+        <nav class="max-w-5xl mx-auto bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-white/80 dark:border-slate-800 shadow-[0_10px_30px_-10px_rgba(5,150,105,0.08)] rounded-full px-4 sm:px-6 py-2.5 sm:py-3 transition-all duration-300 flex justify-between items-center">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 shrink-0 animate-pulse-slow">
+                    <i class="fa-solid fa-leaf text-xs sm:text-base"></i>
+                </div>
+                <div>
+                    <span class="font-extrabold text-sm sm:text-lg tracking-tight text-slate-900 dark:text-white leading-none block">Gisikdrono<span class="text-brand">.</span></span>
+                    <span class="text-[9px] sm:text-[10px] text-slate-400 dark:text-slate-500 tracking-wide uppercase font-semibold block">Creative Space</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <button onclick="toggleTheme()" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-all hover:scale-105 active:scale-95 shrink-0">
+                    <i id="themeIcon" class="fa-solid fa-moon text-xs sm:text-sm"></i>
+                </button>
+
+                <button onclick="openModal()" class="relative group overflow-hidden rounded-full bg-slate-900 dark:bg-emerald-600 hover:bg-brand dark:hover:bg-emerald-500 text-white px-4 sm:px-5 py-2 sm:py-2.5 font-semibold transition-all duration-300 active:scale-95 shadow-sm flex items-center gap-2 text-xs sm:text-sm shrink-0">
+                    <span class="relative z-10 flex items-center gap-1.5">
+                        <i class="fa-solid fa-feather-pointed text-emerald-400 dark:text-white group-hover:text-white transition-colors"></i> Rilis Karya
+                    </span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <header class="max-w-4xl mx-auto text-center px-4 pt-10 sm:pt-16 pb-12 relative z-10">
+        <span class="inline-block border border-emerald-600/10 dark:border-emerald-500/20 bg-emerald-50/50 dark:bg-emerald-950/50 text-brand dark:text-emerald-400 text-[10px] sm:text-xs font-bold px-3.5 py-1.5 rounded-full tracking-wider uppercase mb-4 fade-in-up shadow-xs">
+            ✨ Karya Lokal Rasa Global
+        </span>
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15] fade-in-up" style="animation-delay: 100ms;">
+            Nafas Baru Dari <br>
+            <span class="bg-gradient-to-r from-emerald-600 via-teal-600 to-amber-600 dark:from-emerald-400 dark:via-teal-400 dark:to-amber-500 bg-clip-text text-transparent">
+                Limbah & Kreativitas
+            </span>
+        </h1>
+        <p class="text-xs sm:text-base text-slate-500 dark:text-slate-400 max-w-xl mx-auto mt-4 sm:mt-5 leading-relaxed fade-in-up" style="animation-delay: 200ms;">
+            Eksplorasi ragam instalasi Ecobrick, produk turunan organik, hingga racikan kuliner autentik dari perajin dan rumah tangga Kelurahan Gisikdrono.
+        </p>
+
+        <div class="max-w-lg mx-auto mt-8 fade-in-up" style="animation-delay: 300ms;">
+            <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-1.5 rounded-full border border-slate-200/80 dark:border-slate-800 shadow-lg shadow-slate-200/50 dark:shadow-none flex items-center transition-all focus-within:border-brand">
+                <i class="fa-solid fa-magnifying-glass text-slate-400 pl-4 text-xs sm:text-sm"></i>
+                <input type="text" id="searchInput" placeholder="Cari karya estetik..." class="w-full px-3 py-2 text-slate-800 dark:text-white focus:outline-none text-xs sm:text-sm bg-transparent font-medium">
+                <button id="searchBtn" class="bg-brand hover:bg-teal-700 text-white px-5 py-2.5 rounded-full font-medium text-xs sm:text-sm transition-all shrink-0">
+                    Eksplor
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full relative z-10">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
+            <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-1.5 sm:p-2 rounded-full border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-1.5 sm:gap-2 max-w-full overflow-x-auto scrollbar-none">
+                <div class="flex items-center gap-1.5 pl-3 pr-2 border-r border-slate-200 dark:border-slate-800 text-slate-400 shrink-0">
+                    <i class="fa-solid fa-filter text-xs text-brand dark:text-emerald-400"></i>
+                    <span class="text-xs font-bold text-slate-600 dark:text-slate-400 hidden sm:inline">Kategori:</span>
+                </div>
+                <div class="flex gap-1 shrink-0">
+                    <button class="filter-btn active" data-cat="semua">Semua</button>
+                    <button class="filter-btn" data-cat="ecobrick">Ecobrick</button>
+                    <button class="filter-btn" data-cat="kerajinan">Kriya & Seni</button>
+                    <button class="filter-btn" data-cat="kuliner">Dapur Warga</button>
+                </div>
+            </div>
+
+            <div class="relative shrink-0 dropdown-container">
+                <button onclick="toggleSortMenu(event)" class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-4 py-2 sm:py-2.5 rounded-full border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300 transition-all hover:border-slate-300 dark:hover:border-slate-700 active:scale-95">
+                    <i class="fa-solid fa-arrow-up-short-wide text-xs text-brand dark:text-emerald-400 shrink-0"></i>
+                    <span id="sortLabel">Terbaru</span>
+                    <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 ml-1 transition-transform duration-300" id="sortArrow"></i>
+                </button>
+
+                <div id="customSortMenu" class="absolute right-0 mt-2 w-40 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-xl overflow-hidden z-50 transition-all duration-200 transform origin-top-right scale-95 opacity-0 pointer-events-none">
+                    <div class="p-1.5 flex flex-col gap-0.5">
+                        <button onclick="selectSortOption('terbaru', 'Terbaru', event)" class="sort-item active">
+                            <span>Terbaru</span>
+                            <i class="fa-solid fa-check text-xs check-icon"></i>
+                        </button>
+                        <button onclick="selectSortOption('termurah', 'Termurah', event)" class="sort-item">
+                            <span>Termurah</span>
+                            <i class="fa-solid fa-check text-xs check-icon hidden"></i>
+                        </button>
+                        <button onclick="selectSortOption('termahal', 'Termahal', event)" class="sort-item">
+                            <span>Termahal</span>
+                            <i class="fa-solid fa-check text-xs check-icon hidden"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="productGrid" class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        </div>
+    </main>
+
+    <div id="productModal" class="fixed inset-0 bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none">
+        <div class="bg-white dark:bg-slate-900 rounded-[2rem] max-w-md w-full p-6 sm:p-8 relative shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] max-h-[90vh] overflow-y-auto custom-scrollbar transform scale-95 transition-all duration-300 border border-white dark:border-slate-800">
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-800 dark:hover:text-white bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full transition-all text-xs w-8 h-8 flex items-center justify-center active:scale-95">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="mb-6">
+                <span class="text-brand dark:text-emerald-400 font-bold text-[10px] tracking-widest uppercase block mb-1">Gisikdrono Space</span>
+                <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Katalogkan Kreasimu</h3>
+            </div>
+
+            <form id="productForm" class="space-y-4 sm:space-y-5">
+                <div class="input-wrapper">
+                    <label class="block text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Nama Kreator / RT</label>
+                    <div class="relative">
+                        <input type="text" id="sellerName" required placeholder="Contoh: PKK RW 06 / Bu Karno RT 02" class="custom-input">
+                        <span class="input-focus-border"></span>
+                    </div>
+                </div>
+
+                <div class="input-wrapper">
+                    <label class="block text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Judul Karya</label>
+                    <div class="relative">
+                        <input type="text" id="productTitle" required placeholder="Contoh: Vas Sudut Ecobrick Polesan" class="custom-input">
+                        <span class="input-focus-border"></span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="input-wrapper">
+                        <label class="block text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Kategori</label>
+                        <div class="relative dropdown-container">
+                            <button type="button" onclick="toggleFormCatMenu(event)" class="custom-input text-left flex justify-between items-center pr-3">
+                                <span id="formCatLabel">Ecobrick</span>
+                                <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 transition-transform duration-300" id="formCatArrow"></i>
+                            </button>
+                            <input type="hidden" id="productCat" value="ecobrick">
+                            
+                            <div id="formCatMenu" class="absolute left-0 mt-1 w-full bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-xl overflow-hidden z-50 transition-all duration-200 transform origin-top scale-95 opacity-0 pointer-events-none">
+                                <div class="p-1 flex flex-col gap-0.5">
+                                    <button type="button" onclick="selectFormCat('ecobrick', 'Ecobrick', event)" class="cat-item active">Ecobrick</button>
+                                    <button type="button" onclick="selectFormCat('kerajinan', 'Kriya & Seni', event)" class="cat-item">Kriya & Seni</button>
+                                    <button type="button" onclick="selectFormCat('kuliner', 'Dapur Warga', event)" class="cat-item">Dapur Warga</button>
+                                </div>
+                            </div>
+                            <span class="input-focus-border"></span>
+                        </div>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label class="block text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Mahar (Rp)</label>
+                        <div class="relative">
+                            <input type="text" id="productPriceDisplay" required placeholder="50.000" class="custom-input" oninput="formatInputHarga(this)">
+                            <span class="input-focus-border"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-wrapper">
+                    <label class="block text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Koneksi WhatsApp</label>
+                    <div class="flex gap-2">
+                        <div class="relative w-28 sm:w-32 shrink-0 dropdown-container">
+                            <button type="button" onclick="toggleCountryMenu(event)" class="custom-input text-left flex justify-between items-center px-2.5 py-2.5">
+                                <span id="countryLabel" class="text-[11px] sm:text-xs font-semibold">🇮🇩 +62</span>
+                                <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 transition-transform duration-300" id="countryArrow"></i>
+                            </button>
+                            <input type="hidden" id="countryCode" value="62">
+                            <span class="input-focus-border"></span>
+
+                            <div id="countryMenu" class="absolute left-0 mt-1 w-44 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-2xl max-h-48 overflow-y-auto custom-scrollbar z-50 transition-all duration-200 transform origin-top scale-95 opacity-0 pointer-events-none">
+                                <div class="p-1 flex flex-col">
+                                    <button type="button" onclick="selectCountry('62', '🇮🇩 +62', event)" class="country-item active">🇮🇩 +62 (ID)</button>
+                                    <button type="button" onclick="selectCountry('1', '🇺🇸 +1', event)" class="country-item">🇺🇸 +1 (US)</button>
+                                    <button type="button" onclick="selectCountry('20', '🇪🇬 +20', event)" class="country-item">🇪🇬 +20 (EG)</button>
+                                    <button type="button" onclick="selectCountry('27', '🇿🇦 +27', event)" class="country-item">🇿🇦 +27 (ZA)</button>
+                                    <button type="button" onclick="selectCountry('31', '🇳🇱 +31', event)" class="country-item">🇳🇱 +31 (NL)</button>
+                                    <button type="button" onclick="selectCountry('33', '🇫🇷 +33', event)" class="country-item">🇫🇷 +33 (FR)</button>
+                                    <button type="button" onclick="selectCountry('34', '🇪🇸 +34', event)" class="country-item">🇪🇸 +34 (ES)</button>
+                                    <button type="button" onclick="selectCountry('39', '🇮🇹 +39', event)" class="country-item">🇮🇹 +39 (IT)</button>
+                                    <button type="button" onclick="selectCountry('44', '🇬🇧 +44', event)" class="country-item">🇬🇧 +44 (GB)</button>
+                                    <button type="button" onclick="selectCountry('49', '🇩🇪 +49', event)" class="country-item">🇩🇪 +49 (DE)</button>
+                                    <button type="button" onclick="selectCountry('60', '🇲🇾 +60', event)" class="country-item">🇲🇾 +60 (MY)</button>
+                                    <button type="button" onclick="selectCountry('61', '🇦🇺 +61', event)" class="country-item">🇦🇺 +61 (AU)</button>
+                                    <button type="button" onclick="selectCountry('63', '🇵🇭 +63', event)" class="country-item">🇵🇭 +63 (PH)</button>
+                                    <button type="button" onclick="selectCountry('65', '🇸🇬 +65', event)" class="country-item">🇸🇬 +65 (SG)</button>
+                                    <button type="button" onclick="selectCountry('66', '🇹🇭 +66', event)" class="country-item">🇹🇭 +66 (TH)</button>
+                                    <button type="button" onclick="selectCountry('81', '🇯🇵 +81', event)" class="country-item">🇯🇵 +81 (JP)</button>
+                                    <button type="button" onclick="selectCountry('82', '🇰🇷 +82', event)" class="country-item">🇰🇷 +82 (KR)</button>
+                                    <button type="button" onclick="selectCountry('84', '🇻🇳 +84', event)" class="country-item">🇻🇳 +84 (VN)</button>
+                                    <button type="button" onclick="selectCountry('86', '🇨🇳 +86', event)" class="country-item">🇨🇳 +86 (CN)</button>
+                                    <button type="button" onclick="selectCountry('91', '🇮🇳 +91', event)" class="country-item">🇮🇳 +91 (IN)</button>
+                                    <button type="button" onclick="selectCountry('92', '🇵🇰 +92', event)" class="country-item">🇵🇰 +92 (PK)</button>
+                                    <button type="button" onclick="selectCountry('93', '🇦🇫 +93', event)" class="country-item">🇦🇫 +93 (AF)</button>
+                                    <button type="button" onclick="selectCountry('94', '🇱🇰 +94', event)" class="country-item">🇱🇰 +94 (LK)</button>
+                                    <button type="button" onclick="selectCountry('95', '🇲🇲 +95', event)" class="country-item">🇲🇲 +95 (MM)</button>
+                                    <button type="button" onclick="selectCountry('212', '🇲🇦 +212', event)" class="country-item">🇲🇦 +212 (MA)</button>
+                                    <button type="button" onclick="selectCountry('351', '🇵🇹 +351', event)" class="country-item">🇵🇹 +351 (PT)</button>
+                                    <button type="button" onclick="selectCountry('670', '🇹🇱 +670', event)" class="country-item">🇹🇱 +670 (TL)</button>
+                                    <button type="button" onclick="selectCountry('852', '🇭🇰 +852', event)" class="country-item">🇭🇰 +852 (HK)</button>
+                                    <button type="button" onclick="selectCountry('886', '🇹🇼 +886', event)" class="country-item">🇹🇼 +886 (TW)</button>
+                                    <button type="button" onclick="selectCountry('966', '🇸🇦 +966', event)" class="country-item">🇸🇦 +966 (SA)</button>
+                                    <button type="button" onclick="selectCountry('971', '🇦🇪 +971', event)" class="country-item">🇦🇪 +971 (AE)</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative flex-grow">
+                            <input type="text" id="sellerWA" required placeholder="896-0435-1502" class="custom-input tracking-wide font-medium" oninput="formatInputWA(this)">
+                            <span class="input-focus-border"></span>
+                        </div>
+                    </div>
+                    <span id="waError" class="text-[10px] text-red-500 hidden mt-1 block font-medium">⚠️ Masukkan minimal 9 angka valid.</span>
+                </div>
+
+                <div class="input-wrapper">
+                    <label class="block text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Potret Visual</label>
+                    <div class="relative rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-950/50 p-1.5 transition-all hover:border-brand">
+                        <input type="file" id="productImgFile" accept="image/*" required class="w-full text-xs text-slate-600 dark:text-slate-400 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[11px] file:font-bold file:bg-slate-900 dark:file:bg-emerald-600 file:text-white hover:file:bg-brand cursor-pointer focus:outline-none transition-all">
+                    </div>
+                </div>
+
+                <div class="input-wrapper">
+                    <div class="flex justify-between items-center mb-1">
+                        <label class="block text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">Narasi Singkat</label>
+                        <span id="wordCountDisplay" class="text-[10px] text-slate-400 font-semibold transition-colors">0/50 kata</span>
+                    </div>
+                    <div class="relative">
+                        <textarea id="productDesc" rows="3" required placeholder="Tuliskan kisah di balik material karya ini (maks. 50 kata)..." class="custom-input resize-none" oninput="checkWordCount(this)"></textarea>
+                        <span class="input-focus-border"></span>
+                    </div>
+                </div>
+
+                <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-brand to-teal-700 hover:from-teal-700 hover:to-brand text-white font-bold py-3.5 rounded-2xl transition-all duration-500 mt-4 shadow-md shadow-brand/20 active:scale-95 text-xs sm:text-sm tracking-wide">
+                    Orbitkan ke Galeri
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="mt-auto border-t border-slate-200/60 dark:border-slate-900 py-8 text-center text-xs text-slate-400 dark:text-slate-600">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <span class="font-bold text-slate-700 dark:text-slate-500">© Kelurahan Gisikdrono Mandiri</span>
+            <span class="flex items-center gap-1">Diberdayakan oleh Warga <i class="fa-solid fa-heart text-emerald-500 text-xs"></i> untuk Bumi</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>
